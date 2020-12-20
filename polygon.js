@@ -1,12 +1,17 @@
 class Polygon {
     constructor() {
-        this.polygon = Bodies.circle(50,200,20);
-        World.add(world,this.polygon);
+        var options={
+            'restitution':0.8,
+            'friction':1.0,
+            'density':1.0
+        }
+        this.body = Bodies.circle(50,200,20,options);
+        World.add(world,this.body);
         this.image=loadImage("polygon.png")
     }
     
     display() {
-        var pos=this.polygon.position;
+        var pos=this.body.position;
 
         push();
         imageMode(CENTER);
