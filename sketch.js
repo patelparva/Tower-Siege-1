@@ -44,14 +44,13 @@ function setup() {
 
     polygon=new Polygon();
     
-    slingShot=new SlingShot(polygon.body,{x:50,y:200});
+    slingShot=new SlingShot(polygon.body,{x:150,y:200});
 }
 
 function draw() {
     background(56,44,44);
 
     Engine.update(engine);
-    // block1.body.position.x=mouseX;
 
     stand1.display();
     stand2.display();
@@ -82,4 +81,12 @@ function draw() {
     block25.display();
     polygon.display();
     slingShot.display();
+}
+
+function mouseDragged() {
+    Matter.Body.setPosition(polygon.body,{x:mouseX,y:mouseY})
+}
+
+function mouseReleased() {
+    slingShot.fly();
 }
